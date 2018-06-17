@@ -41,7 +41,7 @@ TARDIS:AddScreen("Door controller", {intonly=true,menu=false}, function(self,ext
 			end
 		elseif button:GetDisabled() then
 			button:SetDisabled(false)
-		elseif ext:DoorOpen() and (not button.open) or button.first then
+		elseif ext:DoorOpen(true) and (not button.open) or button.first then
 			button.open=true
 			button:SetText("Close the door")
 			doorstatus:SetText("The door is open")
@@ -49,7 +49,7 @@ TARDIS:AddScreen("Door controller", {intonly=true,menu=false}, function(self,ext
 			if button.first then
 				button.first=nil
 			end
-		elseif not ext:DoorOpen() and button.open or button.first then
+		elseif not ext:DoorOpen(true) and button.open or button.first then
 			button.open=false
 			button:SetText("Open the door")
 			doorstatus:SetText("The door is closed")
