@@ -312,8 +312,7 @@ else
 			local ext = self.metadata.Exterior.Sounds.Teleport
 			local int = self.metadata.Interior.Sounds.Teleport
 			if LocalPlayer():GetTardisData("exterior")==self then
-				self:EmitSound(ext.demat)
-				self.interior:EmitSound(int.demat or ext.demat)
+				surface.PlaySound(int.demat or ext.demat)
 			else
 				sound.Play(ext.demat,self:GetPos())
 			end
@@ -327,8 +326,7 @@ else
 			local int = self.metadata.Interior.Sounds.Teleport
 			local pos=net.ReadVector()
 			if LocalPlayer():GetTardisData("exterior")==self then
-				self:EmitSound(ext.mat)
-				self.interior:EmitSound(int.mat or ext.mat)
+				surface.PlaySound(int.mat or ext.mat)
 			else
 				sound.Play(ext.mat,pos)
 			end
